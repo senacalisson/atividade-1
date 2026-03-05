@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <input type="text" id="missaoInput" placeholder="Nova missão...">
+    <button id="btnAdicionar">Adicionar</button>
+
+    <ul id="listaMissoes"></ul>
+
+    <script>
+        const input = document.getElementById('missaoInput');
+        const botao = document.getElementById('btnAdicionar');
+        const lista = document.getElementById('listaMissoes');
+
+        botao.addEventListener('click', function() {
+            const textoMissao = input.value;
+
+            if (textoMissao !== "") {
+                const novaMissao = document.createElement('li');
+                novaMissao.innerText = textoMissao;
+                novaMissao.style.cursor = "pointer";
+
+                novaMissao.addEventListener('click', function() {
+                    if (novaMissao.style.textDecoration === "line-through") {
+                        novaMissao.style.textDecoration = "none";
+                        novaMissao.style.color = "black";
+                    } else {
+                        novaMissao.style.textDecoration = "line-through";
+                        novaMissao.style.color = "gray";
+                    }
+                });
+
+                lista.appendChild(novaMissao);
+                input.value = "";
+            }
+        });
+    </script>
+
+</body>
+</html>

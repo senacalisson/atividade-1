@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Votação da Turma</title>
+</head>
+<body>
+
+    <h2>🗳️ Representante de Turma</h2>
+    
+    <button onclick="votar('Vinicius')">Votar em Vinicius</button>
+    <button onclick="votar('Beto')">Votar em Beto</button>
+    <button onclick="votar('Carla')">Votar em Carla</button>
+
+    <p>Vinicius: <span id="votosVinicius">0</span></p>
+    <p>Beto: <span id="votosBeto">0</span></p>
+    <p>Carla: <span id="votosCarla">0</span></p>
+
+    <button onclick="verVencedor()">Ver Resultado Atual</button>
+    <h3 id="resultado"></h3>
+
+    <script>
+        let vini = 0;
+        let beto = 0;
+        let carla = 0;
+
+        function votar(nome) {
+            if (nome === 'Vinicius') {
+                vini = vini + 1;
+                document.getElementById('votosVinicius').innerText = vini;
+            } else if (nome === 'Beto') {
+                beto = beto + 1;
+                document.getElementById('votosBeto').innerText = beto;
+            } else if (nome === 'Carla') {
+                carla = carla + 1;
+                document.getElementById('votosCarla').innerText = carla;
+            }
+        }
+
+        function verVencedor() {
+            let info = document.getElementById('resultado');
+
+            if (vini > beto && vini > carla) {
+                info.innerText = "Vinicius está ganhando!";
+            } else if (beto > vini && beto > carla) {
+                info.innerText = "Beto está ganhando!";
+            } else if (carla > vini && carla > beto) {
+                info.innerText = "Carla está ganhando!";
+            } else {
+                info.innerText = "A disputa está empatada!";
+            }
+        }
+    </script>
+
+</body>
+</html>

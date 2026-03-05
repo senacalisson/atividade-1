@@ -1,0 +1,29 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de Cliques</title>
+</head>
+<body>
+
+    <h2>Bem-vindo ao Blog!</h2>
+    
+    <p id="exibicao">Total de cliques: 0</p>
+    <button id="botaoGostei">Gostei 👍</button>
+
+    <script>
+        const botao = document.getElementById('botaoGostei');
+        const textoContador = document.getElementById('exibicao');
+
+        let cliques = 0;
+
+        botao.addEventListener('click', () => {
+            cliques++;
+
+            textoContador.innerText = "Total de cliques: " + cliques;
+        });
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <form id="porteiroForm">
+        <input type="number" id="idadeUsuario" placeholder="Sua idade" required>
+        <button type="submit">Verificar</button>
+    </form>
+
+    <h1 id="mensagemAcesso"></h1>
+
+    <script>
+        const formulario = document.getElementById('porteiroForm');
+        const display = document.getElementById('mensagemAcesso');
+
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const idade = Number(document.getElementById('idadeUsuario').value);
+
+            if (idade >= 18) {
+                display.innerText = "Entrada permitida";
+                display.style.color = "green";
+            } else {
+                display.innerText = "Entrada proibida";
+                display.style.color = "red";
+            }
+        });
+    </script>
+
+</body>
+</html>

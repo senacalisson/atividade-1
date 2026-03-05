@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Oficina</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        input, select, button { padding: 10px; margin: 5px; }
+        #resultado { color: blue; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <h2>🛠️ Orçamento da Oficina</h2>
+    
+    <input type="number" id="n1" placeholder="Peças/Mão de obra">
+    
+    <select id="op">
+        <option value="+">Somar (+)</option>
+        <option value="-">Desconto (-)</option>
+        <option value="*">Multiplicar (x)</option>
+        <option value="/">Dividir (/)</option>
+    </select>
+    
+    <input type="number" id="n2" placeholder="Valor">
+    
+    <button onclick="calcular()">Calcular</button>
+
+    <h3 id="resultado">Total: R$ 0,00</h3>
+
+    <script>
+        function calcular() {
+            const valor1 = Number(document.getElementById('n1').value);
+            const valor2 = Number(document.getElementById('n2').value);
+            const operacao = document.getElementById('op').value;
+            const campoResultado = document.getElementById('resultado');
+            
+            let total;
+
+            if (operacao === "+") {
+                total = valor1 + valor2;
+            } else if (operacao === "-") {
+                total = valor1 - valor2;
+            } else if (operacao === "*") {
+                total = valor1 * valor2;
+            } else if (operacao === "/") {
+                total = valor2 !== 0 ? valor1 / valor2 : "Erro";
+            }
+
+            campoResultado.innerText = `Total: R$ ${total}`;
+            campoResultado.style.fontWeight = "bold";
+        }
+    </script>
+
+</body>
+</html>

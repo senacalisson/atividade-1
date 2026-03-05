@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <input type="number" id="numeroBase" placeholder="Digite um número">
+    <button id="btnGerar">Gerar Tabuada</button>
+
+    <div id="containerTabuada"></div>
+
+    <script>
+        const input = document.getElementById('numeroBase');
+        const botao = document.getElementById('btnGerar');
+        const resultadoDiv = document.getElementById('containerTabuada');
+
+        function gerarTabuada() {
+            const num = Number(input.value);
+            resultadoDiv.innerHTML = "";
+
+            for (let i = 1; i <= 10; i++) {
+                const linha = document.createElement('p');
+                linha.innerText = num + " x " + i + " = " + (num * i);
+                resultadoDiv.appendChild(linha);
+            }
+        }
+
+        botao.addEventListener('click', gerarTabuada);
+    </script>
+
+</body>
+</html>

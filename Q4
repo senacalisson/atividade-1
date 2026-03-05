@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <form id="formNotas">
+        <input type="number" id="nota1" step="0.1" placeholder="Nota 1" required>
+        <input type="number" id="nota2" step="0.1" placeholder="Nota 2" required>
+        <button type="submit">Calcular Média</button>
+    </form>
+
+    <h2 id="status"></h2>
+    <p id="mediaValor"></p>
+
+    <script>
+        const formulario = document.getElementById('formNotas');
+        const statusH2 = document.getElementById('status');
+        const mediaP = document.getElementById('mediaValor');
+
+        function calcularResultado(n1, n2) {
+            const media = (n1 + n2) / 2;
+            
+            mediaP.innerText = "Média: " + media.toFixed(1);
+
+            if (media >= 7) {
+                statusH2.innerText = "Aprovado";
+                statusH2.style.color = "green";
+            } else if (media >= 5) {
+                statusH2.innerText = "Recuperação";
+                statusH2.style.color = "yellow";
+            } else {
+                statusH2.innerText = "Reprovado";
+                statusH2.style.color = "red";
+            }
+        }
+
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const n1 = parseFloat(document.getElementById('nota1').value);
+            const n2 = parseFloat(document.getElementById('nota2').value);
+
+            if (n1 >= 0 && n1 <= 10 && n2 >= 0 && n2 <= 10) {
+                calcularResultado(n1, n2);
+            } else {
+                alert("Por favor, digite notas válidas entre 0 e 10.");
+            }
+        });
+    </script>
+
+</body>
+</html>
