@@ -5,8 +5,6 @@
     <title>Contador de Cliques</title>
 </head>
 <body>
-
-    <h2>Bem-vindo ao Blog!</h2>
     
     <p id="exibicao">Total de cliques: 0</p>
     <button id="botaoGostei">Gostei 👍</button>
